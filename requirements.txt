@@ -1,0 +1,10 @@
+pre-commit
+fastapi
+pylibsrtp
+python-multipart
+shapely
+uvicorn==0.17.6 # Newer version has deprecated debug in run()
+vietocr
+yolov5
+Pillow==9.5.0
+numpy
