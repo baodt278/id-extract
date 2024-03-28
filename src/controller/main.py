@@ -31,15 +31,16 @@ SAVE_DIR = cfg.SAVE_DIR
 
 
 """ Recognizion detected parts in ID """
-config = Cfg.load_config_from_name(
-    "vgg_seq2seq"
-)  # OR vgg_transformer -> acc || vgg_seq2seq -> time
-# config = Cfg.load_config_from_file(cfg.OCR_CFG)
-# config['weights'] = cfg.OCR_MODEL_PATH
+# config = Cfg.load_config_from_name(
+#     "vgg_seq2seq"
+# )  # OR vgg_transformer -> acc || vgg_seq2seq -> time
+config = Cfg.load_config_from_file(cfg.OCR_CFG)
+config['weights'] = cfg.OCR_MODEL_PATH
 config["cnn"]["pretrained"] = False
 config["device"] = cfg.DEVICE
 config["predictor"]["beamsearch"] = False
 detector = Predictor(config)
+
 
 @app.post("/uploader")
 async def upload(file: UploadFile = File(...)):
